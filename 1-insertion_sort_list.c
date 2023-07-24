@@ -4,32 +4,38 @@
 /**
  *
 */
+void insert_swap(listint_t **head, listint_t **cur, listint_t *prev)
+{
+	(*cur)->next = prev->next;
+	if (prev->next)
+		prev->next->prev = *cur;
+
+	prev->prev = (*cur)->prev;
+	prev->next = *cur;
+	if ((*cur)->prev)
+		(*cur)->prev->next = prev;
+	else
+		*head = prev;
+	(*cur)->prev = prev;
+	*cur = prev->prev;
+}
+/**
+ *
+*/
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *current = *list, *temp, *temp2;
+	listint_t *it, *ins, *temp;
 
-	if (!list || !current)
-		return;
-
-	current = current->next->next;
-
-
-	while (1)
+	for (it = (*list)->next; it; it = temp)
 	{
-		temp = current->prev;
-		while (temp->prev && temp->n > temp->prev->n)
-		{
-			temp2 = temp->prev;
-			temp2->next = temp->next;
-			temp->prev = temp2->prev;
-			temp2->prev = temp;
-			temp->next = temp2;
-			print_list(*list);
-		}
-		if (!current)
-			break;
+		temp = it->next;
+		ins = it->prev;
 
-		current = current->next;
+		while (ins && it->n < ins->n)
+		{
+			insert_swap(list, &ins, it);
+			print_list((const listint_t *)*list);
+		}
 	}
 }
 
