@@ -2,7 +2,12 @@
 
 
 /**
+ *insert_swap - swap between 2 nodes
+ * @head: head of the list
+ * @cur: current node
+ * @prev: prevois node
  *
+ * Return: Nothing
 */
 void insert_swap(listint_t **head, listint_t **cur, listint_t *prev)
 {
@@ -20,7 +25,10 @@ void insert_swap(listint_t **head, listint_t **cur, listint_t *prev)
 	*cur = prev->prev;
 }
 /**
+ * insertion_sort_list - sort an list using insertion sort
+ * @list: given list
  *
+ * Return: Nothing
 */
 void insertion_sort_list(listint_t **list)
 {
@@ -40,7 +48,11 @@ void insertion_sort_list(listint_t **list)
 }
 
 /**
+ * insertion_sort_array - sort an array using insertion sort
+ * @array: given array
+ * @size: size of the array
  *
+ * Return: Nothing
 */
 void insertion_sort_array(int array[], size_t size)
 {
