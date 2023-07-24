@@ -46,28 +46,3 @@ void insertion_sort_list(listint_t **list)
 		}
 	}
 }
-
-/**
- * insertion_sort_array - sort an array using insertion sort
- * @array: given array
- * @size: size of the array
- *
- * Return: Nothing
-*/
-void insertion_sort_array(int array[], size_t size)
-{
-	size_t i;
-	int current, j;
-
-	for (i = 1; i < size; i++)
-	{
-		current = array[i];
-		j = i - 1;
-		for (; j >= 0 && array[j] > current; j--)
-		{
-			array[j + 1] = array[j];
-			print_array(array, size);
-		}
-		array[j + 1] = current;
-	}
-}
