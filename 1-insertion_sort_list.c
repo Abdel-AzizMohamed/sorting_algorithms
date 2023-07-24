@@ -34,6 +34,9 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *it, *ins, *temp;
 
+	if (!list || !(*list) || !((*list)->next))
+		return;
+
 	for (it = (*list)->next; it; it = temp)
 	{
 		temp = it->next;
